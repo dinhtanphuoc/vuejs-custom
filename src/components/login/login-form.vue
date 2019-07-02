@@ -26,7 +26,14 @@
           placeholder="Nhập mật khẩu"
         />
       </div>
-      <b-button class="w-100" type="submit" pill variant="info">Button</b-button>
+      <b-button
+        class="w-100 form-button"
+        type="submit"
+        pill
+        variant="info"
+      >
+        Button
+      </b-button>
     </div>
   </b-form>
 </template>
@@ -91,6 +98,9 @@
             box-shadow: none;
           }
         }
+      }
+      .form-button {
+        margin-top: 20px;
       }
     }
   }
