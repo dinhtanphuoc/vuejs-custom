@@ -32,7 +32,7 @@
         pill
         variant="info"
       >
-        Button
+        Đăng nhập
       </b-button>
     </div>
   </b-form>
