@@ -4,9 +4,7 @@
     @submit="onSubmit"
     v-if="show"
   >
-    <div class="login-form-header">
-      <h3>Đăng nhập</h3>
-    </div>
+    <img class="image-logo" src="../../assets/images/logo.png" />
     <div class="login-form-content">
       <div class="form-group">
         <i class="icon icon-email" />
@@ -26,6 +24,7 @@
           placeholder="Nhập mật khẩu"
         />
       </div>
+      <div>{{ form }}</div>
       <b-button
         class="w-100 form-button"
         type="submit"
@@ -39,6 +38,9 @@
 </template>
 
 <script>
+  import { createNamespacedHelpers } from 'vuex'
+  const { mapState, mapActions } = createNamespacedHelpers('login')
+
   export default {
     data() {
       return {
@@ -50,9 +52,10 @@
       }
     },
     methods: {
+      ...mapActions(['getProfile']),
       onSubmit(e) {
         e.preventDefault()
-        console.log(this.form)
+        this.getProfile();
       }
     }
   }
@@ -60,20 +63,13 @@
 
 <style lang="scss">
   .form-content {
-    background-image: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+    background-image: linear-gradient(-225deg, #FFFEFF 0%, #17a2b8 100%);
     box-shadow: 0 0 10px #595959;
     width: 100%;
     padding: 20px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    .login-form-header {
-      margin: 20px;
-      h3 {
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-    }
     .login-form-content {
       margin-bottom: 20px;
       .form-group {
@@ -100,8 +96,14 @@
         }
       }
       .form-button {
+        font-weight: bold;
         margin-top: 20px;
       }
     }
+  }
+  .image-logo {
+    max-height: 100px;
+    max-width: 150px;
+    margin-bottom: 35px;
   }
 </style>
