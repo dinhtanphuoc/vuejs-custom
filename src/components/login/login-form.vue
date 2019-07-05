@@ -38,8 +38,7 @@
 </template>
 
 <script>
-  import { createNamespacedHelpers } from 'vuex'
-  const { mapState, mapActions } = createNamespacedHelpers('login')
+  import { mapActions } from 'vuex'
 
   export default {
     data() {
@@ -52,9 +51,9 @@
       }
     },
     methods: {
-      ...mapActions(['getProfile']),
+      ...mapActions('login', ['getProfile']),
       onSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         this.getProfile();
       }
     }
